@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OdeurMode - Parfums & Accessoires</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>OdeurMode</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#parfums">Parfums</a></li>
+                <li><a href="#accessoires">Accessoires</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 <span id="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h2>L'élégance à portée de main</h2>
+            <p>Découvrez notre collection exclusive de parfums et accessoires</p>
+            <button class="cta-btn" onclick="scrollToSection('parfums')">Découvrir</button>
+        </div>
+    </section>
+
+    <!-- Catégories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Nos Catégories</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('parfums')">
+                    <div class="category-icon">👃</div>
+                    <h3>Parfums</h3>
+                    <p>Collection exclusive</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('accessoires')">
+                    <div class="category-icon">💎</div>
+                    <h3>Accessoires</h3>
+                    <p>Compléments d'élégance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits - Parfums -->
+    <section id="parfums" class="products">
+        <div class="container">
+            <h2>Nos Parfums</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300?text=Parfum+1" alt="Parfum Élégance">
+                    <h3>Élégance Noire</h3>
+                    <p>Parfum boisée intense</p>
+                    <span class="price">€79.99</span>
+                    <button class="add-to-cart" onclick="addToCart('Élégance Noire', 79.99)">Ajouter au panier</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300?text=Parfum+2" alt="Parfum Fleuri">
+                    <h3>Fleur Blanche</h3>
+                    <p>Notes florales délicates</p>
+                    <span class="price">€69.99</span>
+                    <button class="add-to-cart" onclick="addToCart('Fleur Blanche', 69.99)">Ajouter au panier</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300?text=Parfum+3" alt="Parfum Frais">
+                    <h3>Océan Frais</h3>
+                    <p>Fraîcheur marine</p>
+                    <span class="price">€59.99</span>
+                    <button class="add-to-cart" onclick="addToCart('Océan Frais', 59.99)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits - Accessoires -->
+    <section id="accessoires" class="products">
+        <div class="container">
+            <h2>Accessoires</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300?text=Flacon+Voyage" alt="Flacon de voyage">
+                    <h3>Flacon Voyage</h3>
+                    <p>Flacon rechargeable luxe</p>
+                    <span class="price">€29.99</span>
+                    <button class="add-to-cart" onclick="addToCart('Flacon Voyage', 29.99)">Ajouter au panier</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300?text=Coffret+Cadeau" alt="Coffret cadeau">
+                    <h3>Coffret Prestige</h3>
+                    <p>Coffret cadeau luxueux</p>
+                    <span class="price">€99.99</span>
+                    <button class="add-to-cart" onclick="addToCart('Coffret Prestige', 99.99)">Ajouter au panier</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x300?text=Spray+Corps" alt="Spray pour le corps">
+                    <h3>Spray Corps</h3>
+                    <p>Spray hydratant parfumé</p>
+                    <span class="price">€24.99</span>
+                    <button class="add-to-cart" onclick="addToCart('Spray Corps', 24.99)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panier -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Votre Panier</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Les articles du panier apparaîtront ici -->
+        </div>
+        <div class="cart-total">
+            <strong>Total: €<span id="cart-total">0.00</span></strong>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">Commander</button>
+    </div>
+
+    <!-- Footer avec TikTok et Email -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OdeurMode</h3>
+                    <p>Votre destination pour les parfums et accessoires de luxe</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 Email: <a href="mailto:contact@odeurmode.fr">contact@odeurmode.fr</a></p>
+                    <p>📱 TikTok: <a href="https://tiktok.com/@odeurmode" target="_blank">@odeurmode</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#parfums">Parfums</a></li>
+                        <li><a href="#accessoires">Accessoires</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OdeurMode. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
